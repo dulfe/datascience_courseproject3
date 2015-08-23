@@ -58,4 +58,6 @@ Feature List:
 |fBodyGyroMag
 |fBodyGyroJerkMag
 
+The values of all these fields are AVERAGE values of each Activity recorded, in other words, the values of (for example) `tBodyAcc.std...Y` contains the AVERAGE/MEAN value of all the STANDARD DEVIATION measures recorded for the indicated ACTIVITY and SUBJECT.
+
 *08-2015*
