@@ -115,6 +115,6 @@ runProject <- function () {
     message('Data saved as "results.txt"')
 
     # return data
-    tidyData
+    invisible(tidyData)
 }
 

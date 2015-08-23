@@ -18,6 +18,11 @@ It will generate a file named "results.txt" and it return the same data to the u
 
 ***The user MUST call this function.***
 
+```r
+source("run_analysis.R")
+runProject()
+```
+
 Private/Inner Functions
 -----------------
 
