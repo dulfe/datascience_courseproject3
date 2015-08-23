@@ -1,30 +1,61 @@
 Cook Book
 ==============
 
-The project has been structured as a single code file with one "*public*" function  which has multiple "*private/inner*" functions; The end-user only needs access to the public one, this function will call all the others.
+The results file contains the following columns:
 
-Public Functions
-----------------
+**subject**: Volunteer ID
 
-**runProject**, the project asks for 5 steps, this function does all 5 steps plus some extra steps to download the data and save it. It mostly call all other "private" functions.
+**activityName**: Activity, possible values are:
 
-It will generate a file named "results.txt" and it return the same data to the user.
+|Value|
+|-----|
+|WALKING
+|WALKING_UPSTAIRS
+|WALKING_DOWNSTAIRS
+|SITTING
+|STANDING
+|LAYING
 
-***The user MUST call this function.***
 
-Private/Inner Functions
------------------
+All other column names are built based on:
 
-**downloadData**: Checks if the COMPRESSED data file "*dataset.zip*" exists, if it does, un-compress it, if it does not, downloads it from remote server and then un-compress it.
+`Feature . Aggregate Type .. (.[XYZ])`
 
-**loadData**: There are 3 data files (*X_xxxx.txt, Y_xxxx.txt and subject_xxxx.txt*) which are located in 2 data folders (train and test), those files get loaded and the appropriate feature column names get applied based on the contents of feature.txt file.
+Where:
 
-**getFullData**: Merges TRAIN and TEST data by calling *loadData* twice with the appropriate folder names.
+**Feature** is the Feature Name
 
-**getOnlyFeaturesThatMatch**: Extracts the base columns (label and subject) and all the columns which names match the parameter supplied. The project asks for "Standard Deviation" and "Mean" columns, since there are no more information about the column names, I just assumed it includes all column names that contains .std. and .mean.
+**Aggregate Type**, possible values are:
 
-**addDescriptiveActivityNames**: Adds a column with the correct Activity Names based on the data inside the file activity_labels.txt
+|Value|Description         |
+|-----|--------------------|
+|mean | Average            |
+|std  | Standard Deviation|
 
-**getTidyData**: Calculates the MEAN of all columns grouped by SUBJECT and ACTIVITYNAME.
+
+**(.[XYZ])** is optional and indicates the Axis (parenthesis only indicates that it is optional, the parenthesis will NEVER be included in the name)
+
+
+Feature List:
+
+|Feature      | Support XYZ|
+|-------------|------------|
+|tBodyAcc     | Yes |
+|tGravityAcc  | Yes |
+|tBodyAccJerk | Yes
+|tBodyGyro    | Yes
+|tBodyGyroJerk| Yes
+|tBodyAccMag
+|tGravityAccMag
+|tBodyAccJerkMag
+|tBodyGyroMag
+|tBodyGyroJerkMag
+|fBodyAcc|Yes
+|fBodyAccJerk | Yes
+|fBodyGyro    | Yes
+|fBodyAccMag
+|fBodyAccJerkMag
+|fBodyGyroMag
+|fBodyGyroJerkMag
 
 *08-2015*
