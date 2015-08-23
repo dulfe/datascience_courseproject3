@@ -38,7 +38,5 @@ Private/Inner Functions
 
 **getTidyData**: Calculates the MEAN of all columns grouped by SUBJECT and ACTIVITYNAME.
 
-*08-2015*
-
 
 *08-2015*
